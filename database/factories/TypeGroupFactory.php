@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Seed;
+use App\Models\TypeGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SeedFactory extends Factory
+class TypeGroupFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Seed::class;
+    protected $model = TypeGroup::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,7 @@ class SeedFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(2, true),
-            'type' => $this->faker->sentence(3, false),
-            'producer' => $this->faker->sentence(1, false),
-            'expiration_time' => $this->faker->date()
+            //
         ];
     }
 }

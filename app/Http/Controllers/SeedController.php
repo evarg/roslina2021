@@ -4,27 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Seed;
 use Illuminate\Http\Request;
+use App\Http\Requests\SeedRequest;
 
-class SeedController extends Controller
-{
+class SeedController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index() {
+        $seeds = Seed::all();
+        return response()->json($seeds);
     }
 
     /**
@@ -33,9 +24,14 @@ class SeedController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(SeedRequest $request) {
+        $seed = new Seed;
+        $seed->name = $request->name;
+        $seed->type = $request->type;
+        $seed->producer = $request->producer;
+        $seed->expiration_time = $request->expiration_time;
+        $seed->save();
+        return($seed);
     }
 
     /**
@@ -44,20 +40,8 @@ class SeedController extends Controller
      * @param  \App\Models\Seed  $seed
      * @return \Illuminate\Http\Response
      */
-    public function show(Seed $seed)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Seed  $seed
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Seed $seed)
-    {
-        //
+    public function show(Seed $seed) {
+        return $seed;
     }
 
     /**
@@ -67,9 +51,13 @@ class SeedController extends Controller
      * @param  \App\Models\Seed  $seed
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seed $seed)
-    {
-        //
+    public function update(SeedRequest $request, Seed $seed) {
+        $seed->name = $request->name;
+        $seed->type = $request->type;
+        $seed->producer = $request->producer;
+        $seed->expiration_time = $request->expiration_time;
+        $seed->save();
+        return $seed;
     }
 
     /**
@@ -78,8 +66,8 @@ class SeedController extends Controller
      * @param  \App\Models\Seed  $seed
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seed $seed)
-    {
-        //
+    public function destroy(Seed $seed) {
+        $seed->delete();
     }
+
 }

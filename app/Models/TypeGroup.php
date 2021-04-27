@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Nasiono extends Model
-{
+class TypeGroup extends Model {
+
     use HasFactory;
+    use SoftDeletes;
 }

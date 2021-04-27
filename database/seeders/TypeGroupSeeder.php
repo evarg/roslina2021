@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class SeedSeeder extends Seeder
+class TypeGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class SeedSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Seed::factory()->count(30)->create();
+        //
     }
 }
