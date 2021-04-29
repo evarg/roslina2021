@@ -5,6 +5,11 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// dodane na CORS'a
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: *");
+header('Access-Control-Allow-Headers: Origin, X-Requested-With,Authorization, Content-Type, Accept');
+
 /*
 |--------------------------------------------------------------------------
 | Check If Application Is Under Maintenance

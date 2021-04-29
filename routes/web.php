@@ -24,3 +24,7 @@ Route::resource('seeds', 'App\Http\Controllers\SeedController')->except([
 Route::resource('type_groups', 'App\Http\Controllers\TypeGroupController')->except([
     'create', 'edit'
 ]);
+
+Route::resource('types', 'App\Http\Controllers\TypeController');
+Route::resource('variants', 'App\Http\Controllers\VariantController');
+Route::resource('seed_producers', 'App\Http\Controllers\SeedProducerController');

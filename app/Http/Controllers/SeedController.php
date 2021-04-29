@@ -14,7 +14,7 @@ class SeedController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $seeds = Seed::all();
+        $seeds = Seed::with('variant')->get();
         return response()->json($seeds);
     }
 
@@ -27,8 +27,9 @@ class SeedController extends Controller {
     public function store(SeedRequest $request) {
         $seed = new Seed;
         $seed->name = $request->name;
-        $seed->type = $request->type;
-        $seed->producer = $request->producer;
+        $seed->description = $request->description;
+        $seed->variant_id = $request->variant_id;
+        $seed->producer_id = $request->producer_id;
         $seed->expiration_time = $request->expiration_time;
         $seed->save();
         return($seed);
@@ -53,8 +54,9 @@ class SeedController extends Controller {
      */
     public function update(SeedRequest $request, Seed $seed) {
         $seed->name = $request->name;
-        $seed->type = $request->type;
-        $seed->producer = $request->producer;
+        $seed->description = $request->description;
+        $seed->variant_id = $request->variant_id;
+        $seed->producer_id = $request->producer_id;
         $seed->expiration_time = $request->expiration_time;
         $seed->save();
         return $seed;
